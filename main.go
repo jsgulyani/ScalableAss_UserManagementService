@@ -18,7 +18,7 @@ func main() {
 	router.POST("/user", postUser)         // to create new user
 	router.PATCH("/user/:id", updateUser)  // to updated existing user
 	router.POST("/auth", authenticateUser) // authentication
-	router.Run(userManagement.URI)
+	router.Run()
 
 }
 
