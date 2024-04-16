@@ -1,6 +1,6 @@
 #  make sure correct directory and run below 2 commands
 #  docker build -t lms-userservice .
-#  docker run -e PORT=9000 -p 9000:9000 lms-userservice
+#  docker run -e PORT=8081 -p 8081:8081 lms-userservice
 
 # Use the official Go image as a base
 FROM golang:1.20
