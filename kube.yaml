@@ -1,0 +1,37 @@
+#1:eval $(minikube docker-env) --->on bash
+#  2: docker docker build -t lms-userservice .
+#     docker run -e PORT=8081 -p 8081:8081 lms-userservice
+# 3:kubectl apply -f kube.yaml
+# 4:kubectl expose pod lms-userservice --type=NodePort --port=8081 --name=lms-userservice
+# 5:kubectl get services
+# 6: minikube service lms-userservice --url
+# 7: kubectl logs lms-userservice-to check the logs
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lms-userservice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: lms-userservice
+  template:
+    metadata:
+      labels:
+        app: lms-userservice
+    spec:
+      containers:
+      - name: lms-userservice
+        image: lms-userservice
+        ports:
+        - containerPort: 8081
+          name: http
+        env:
+        - name: PORT
+          value: "8081"
+          resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+        imagePullPolicy: IfNotPresent
+    

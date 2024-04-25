@@ -1,0 +1,345 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Install the latest PowerShell for new features and improvements! https://aka.ms/PSWindows
+
+PS C:\Users\Jaspal Singh> minikube docker-env
+$Env:DOCKER_TLS_VERIFY = "1"
+$Env:DOCKER_HOST = "tcp://127.0.0.1:62439"
+$Env:DOCKER_CERT_PATH = "C:\Users\Jaspal Singh\.minikube\certs"
+$Env:MINIKUBE_ACTIVE_DOCKERD = "minikube"
+# To point your shell to minikube's docker-daemon, run:
+# & minikube -p minikube docker-env --shell powershell | Invoke-Expression
+PS C:\Users\Jaspal Singh> kubectl run usr2-mk --image=lms-userservice --image-pull-policy=never
+error: invalid image pull policy: never
+See 'kubectl run -h' for help and examples
+PS C:\Users\Jaspal Singh> kubectl run usr2-mk --image=lms-userservice --image-pull-policy=Never
+pod/usr2-mk created
+PS C:\Users\Jaspal Singh> minikube image load lms-userservice
+
+❌  Exiting due to GUEST_IMAGE_LOAD: Failed to load image: save to dir: caching images: caching image "C:\\Users\\Jaspal Singh\\.minikube\\cache\\images\\amd64\\lms-userservice": write: unable to calculate manifest: blob sha256:0f854e9e384aebad70fb52fdd48e8acea052491ede6af8a92cea6826c97012a9 not found
+
+╭────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                                                                                            │
+│    😿  If the above advice does not help, please let us know:                                              │
+│    👉  https://github.com/kubernetes/minikube/issues/new/choose                                            │
+│                                                                                                            │
+│    Please run `minikube logs --file=logs.txt` and attach logs.txt to the GitHub issue.                     │
+│    Please also attach the following file to the GitHub issue:                                              │
+│    - C:\Users\JASPAL~1\AppData\Local\Temp\minikube_image_0c91fd4df808157c33d2108f9d61bfcb8a6bf1c9_0.log    │
+│                                                                                                            │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+PS C:\Users\Jaspal Singh> minikube image load lms-userservice
+
+❌  Exiting due to GUEST_IMAGE_LOAD: Failed to load image: save to dir: caching images: caching image "C:\\Users\\Jaspal Singh\\.minikube\\cache\\images\\amd64\\lms-userservice": write: unable to calculate manifest: blob sha256:0f854e9e384aebad70fb52fdd48e8acea052491ede6af8a92cea6826c97012a9 not found
+
+╭────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                                                                                            │
+│    😿  If the above advice does not help, please let us know:                                              │
+│    👉  https://github.com/kubernetes/minikube/issues/new/choose                                            │
+│                                                                                                            │
+│    Please run `minikube logs --file=logs.txt` and attach logs.txt to the GitHub issue.                     │
+│    Please also attach the following file to the GitHub issue:                                              │
+│    - C:\Users\JASPAL~1\AppData\Local\Temp\minikube_image_0c91fd4df808157c33d2108f9d61bfcb8a6bf1c9_0.log    │
+│                                                                                                            │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+PS C:\Users\Jaspal Singh> minikube logs --file=logs.txt
+PS C:\Users\Jaspal Singh> minikube image load lms-userserviceeval $(minikube -p minikube docker-env)
+PS C:\Users\Jaspal Singh> eval $(minikube -p minikube docker-env)
+eval : The term 'eval' is not recognized as the name of a cmdlet, function, script file, or operable program. Check
+the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ eval $(minikube -p minikube docker-env)
++ ~~~~
+    + CategoryInfo          : ObjectNotFound: (eval:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\Jaspal Singh> minikube image ls --format table
+|-----------------------------------------|---------|---------------|--------|
+|                  Image                  |   Tag   |   Image ID    |  Size  |
+|-----------------------------------------|---------|---------------|--------|
+| registry.k8s.io/coredns/coredns         | v1.10.1 | ead0a4a53df89 | 53.6MB |
+| docker.io/kubernetesui/dashboard        | <none>  | 07655ddf2eebe | 246MB  |
+| docker.io/kubernetesui/metrics-scraper  | <none>  | 115053965e86b | 43.8MB |
+| registry.k8s.io/kube-scheduler          | v1.28.3 | 6d1b4fd1b182d | 60.1MB |
+| registry.k8s.io/kube-controller-manager | v1.28.3 | 10baa1ca17068 | 122MB  |
+| registry.k8s.io/etcd                    | 3.5.9-0 | 73deb9a3f7025 | 294MB  |
+| registry.k8s.io/pause                   | 3.9     | e6f1816883972 | 744kB  |
+| gcr.io/k8s-minikube/storage-provisioner | v5      | 6e38f40d628db | 31.5MB |
+| registry.k8s.io/kube-apiserver          | v1.28.3 | 5374347291230 | 126MB  |
+| registry.k8s.io/kube-proxy              | v1.28.3 | bfc896cf80fba | 73.1MB |
+|-----------------------------------------|---------|---------------|--------|
+PS C:\Users\Jaspal Singh> docker build -t lms-us-d1 -f ..\Jaspal\project\GoProjects\ScalableServiceProject\LibraryManagementSystem\ScalableAss_UserManagementService\Dockerfile .
+[+] Building 0.0s (0/0)                                                                                  docker:default
+ERROR: could not find ..\Jaspal\project\GoProjects\ScalableServiceProject\LibraryManagementSystem\ScalableAss_UserManagementService: CreateFile ..\Jaspal\project\GoProjects\ScalableServiceProject\LibraryManagementSystem\ScalableAss_UserManagementService: The system cannot find the path specified.
+
+View build details: docker-desktop://dashboard/build/default/default/o93wzz85hnlb9cd9kvoo6ehps
+PS C:\Users\Jaspal Singh> docker build -t lms-us-d1 -f ..\Jaspal\project\GoProjects\ScalableServicesProject\LibraryManagementSystem\ScalableAss_UserManagementService\Docker .
+[+] Building 0.0s (0/0)                                                                                  docker:default
+ERROR: could not find ..\Jaspal\project\GoProjects\ScalableServicesProject\LibraryManagementSystem\ScalableAss_UserManagementService: CreateFile ..\Jaspal\project\GoProjects\ScalableServicesProject\LibraryManagementSystem\ScalableAss_UserManagementService: The system cannot find the path specified.
+
+View build details: docker-desktop://dashboard/build/default/default/g4knkf3uej8r6em72rleo05de
+PS C:\Users\Jaspal Singh> cd ..
+PS C:\Users> cd ..
+PS C:\> cd .\Jaspal\project\GoProjects\ScalableServicesProject\LibraryManagementSystem\ScalableAss_UserManagementService\
+PS C:\Jaspal\project\GoProjects\ScalableServicesProject\LibraryManagementSystem\ScalableAss_UserManagementService> minikube docker-env
+$Env:DOCKER_TLS_VERIFY = "1"
+$Env:DOCKER_HOST = "tcp://127.0.0.1:62439"
+$Env:DOCKER_CERT_PATH = "C:\Users\Jaspal Singh\.minikube\certs"
+$Env:MINIKUBE_ACTIVE_DOCKERD = "minikube"
+# To point your shell to minikube's docker-daemon, run:
+# & minikube -p minikube docker-env --shell powershell | Invoke-Expression
+PS C:\Jaspal\project\GoProjects\ScalableServicesProject\LibraryManagementSystem\ScalableAss_UserManagementService> docker build -t lms-userservice-mk .
+[+] Building 53.6s (12/12) FINISHED                                                                      docker:default
+ => [internal] load build definition from Dockerfile                                                               0.1s
+ => => transferring dockerfile: 799B                                                                               0.0s
+ => [internal] load metadata for docker.io/library/golang:1.20                                                     4.3s
+ => [auth] library/golang:pull token for registry-1.docker.io                                                      0.0s
+ => [internal] load .dockerignore                                                                                  0.0s
+ => => transferring context: 2B                                                                                    0.0s
+ => [internal] load build context                                                                                  0.1s
+ => => transferring context: 14.23kB                                                                               0.1s
+ => [1/6] FROM docker.io/library/golang:1.20@sha256:8f9af7094d0cb27cc783c697ac5ba25efdc4da35f8526db21f7aebb0b0b4f  0.0s
+ => CACHED [2/6] WORKDIR /app                                                                                      0.0s
+ => CACHED [3/6] COPY go.mod go.sum ./                                                                             0.0s
+ => CACHED [4/6] RUN go mod download                                                                               0.0s
+ => [5/6] COPY . .                                                                                                 0.5s
+ => [6/6] RUN go build -o main .                                                                                  48.0s
+ => exporting to image                                                                                             0.5s
+ => => exporting layers                                                                                            0.4s
+ => => writing image sha256:ae79ac83d507378ff3a0f2bfd6be6c99adcc079d99f1d93ddf479604c0569dd4                       0.0s
+ => => naming to docker.io/library/lms-userservice-mk                                                              0.0s
+
+View build details: docker-desktop://dashboard/build/default/default/jb56k30dfupzejresqawkvdqv
+
+What's Next?
+  View a summary of image vulnerabilities and recommendations → docker scout quickview
+PS C:\Jaspal\project\GoProjects\ScalableServicesProject\LibraryManagementSystem\ScalableAss_UserManagementService> kubectl run lms-us-mk2 -- image=lms-userservice-mk --image-pull-policy=Never
+error: required flag(s) "image" not set
+PS C:\Jaspal\project\GoProjects\ScalableServicesProject\LibraryManagementSystem\ScalableAss_UserManagementService> docker image ls
+REPOSITORY                                TAG                                                                          IMAGE ID       CREATED              SIZE
+lms-userservice-mk                        latest                                                                       ae79ac83d507   About a minute ago   1.28GB
+lms-userservice                           latest                                                                       1a70ccdfc177   2 days ago           1.28GB
+docker/desktop-kubernetes                 kubernetes-v1.29.1-cni-v1.4.0-critools-v1.29.0-cri-dockerd-v0.3.8-1-debian   ace10e261811   3 months ago         438MB
+registry.k8s.io/kube-apiserver            v1.29.1                                                                      53b148a9d196   3 months ago         127MB
+registry.k8s.io/kube-proxy                v1.29.1                                                                      43c6c10396b8   3 months ago         82.3MB
+registry.k8s.io/kube-scheduler            v1.29.1                                                                      406945b51154   3 months ago         59.5MB
+registry.k8s.io/kube-controller-manager   v1.29.1                                                                      79d451ca186a   3 months ago         122MB
+gcr.io/k8s-minikube/kicbase               v0.0.42                                                                      dbc648475405   5 months ago         1.2GB
+registry.k8s.io/etcd                      3.5.10-0                                                                     a0eed15eed44   5 months ago         148MB
+registry.k8s.io/coredns/coredns           v1.11.1                                                                      cbb01a7bd410   8 months ago         59.8MB
+docker/desktop-vpnkit-controller          dc331cb22850be0cdd97c84a9cfecaf44a1afb6e                                     556098075b3d   11 months ago        36.2MB
+registry.k8s.io/pause                     3.9                                                                          e6f181688397   18 months ago        744kB
+docker/desktop-storage-provisioner        v2.0                                                                         99f89471f470   2 years ago          41.9MB
+PS C:\Jaspal\project\GoProjects\ScalableServicesProject\LibraryManagementSystem\ScalableAss_UserManagementService> kubectl run lms-us-mk2 --image=lms-userservice-mk --image-pull-policy=Never
+pod/lms-us-mk2 created
+PS C:\Jaspal\project\GoProjects\ScalableServicesProject\LibraryManagementSystem\ScalableAss_UserManagementService> kubectl get pods
+NAME                           READY   STATUS              RESTARTS   AGE
+lms-us-mk2                     0/1     ErrImageNeverPull   0          10s
+lms-usr-ks1-74c7fd75f8-jtlrd   0/1     ErrImageNeverPull   0          20m
+lms-usr-ks1-75d5c459dd-cxq9z   0/1     ErrImageNeverPull   0          9m54s
+usr2-mk                        0/1     ErrImageNeverPull   0          86m
+PS C:\Jaspal\project\GoProjects\ScalableServicesProject\LibraryManagementSystem\ScalableAss_UserManagementService> kubectl logs lms-us-mk2
+Error from server (BadRequest): container "lms-us-mk2" in pod "lms-us-mk2" is waiting to start: ErrImageNeverPull
+PS C:\Jaspal\project\GoProjects\ScalableServicesProject\LibraryManagementSystem\ScalableAss_UserManage
+PS C:\Jaspal\project\GoProjects\ScalableServicesProject\LibraryManagementSystem\ScalableAss_UserManagementService> kubectl get pods
+NAME                           READY   STATUS              RESTARTS   AGE
+lms-us-mk2                     0/1     ErrImageNeverPull   0          5h46m
+lms-usr-ks1-74c7fd75f8-jtlrd   0/1     ErrImageNeverPull   0          6h7m
+lms-usr-ks1-75d5c459dd-cxq9z   0/1     ErrImageNeverPull   0          5h56m
+usr2-mk                        0/1     ErrImageNeverPull   0          7h13m
+PS C:\Jaspal\project\GoProjects\ScalableServicesProject\LibraryManagementSystem\ScalableAss_UserManagementService> minikube docker-env
+$Env:DOCKER_TLS_VERIFY = "1"
+$Env:DOCKER_HOST = "tcp://127.0.0.1:62439"
+$Env:DOCKER_CERT_PATH = "C:\Users\Jaspal Singh\.minikube\certs"
+$Env:MINIKUBE_ACTIVE_DOCKERD = "minikube"
+# To point your shell to minikube's docker-daemon, run:
+# & minikube -p minikube docker-env --shell powershell | Invoke-Expression
+PS C:\Jaspal\project\GoProjects\ScalableServicesProject\LibraryManagementSystem\ScalableAss_UserManagementService> minikube -p minikube docker-env --shell powershell | Invoke-Expression
+PS C:\Jaspal\project\GoProjects\ScalableServicesProject\LibraryManagementSystem\ScalableAss_UserManagementService> docker build -t lms-userservice-mk2 .
+[+] Building 126.5s (12/12) FINISHED                                                   docker:default
+ => [internal] load build definition from Dockerfile                                             0.1s
+ => => transferring dockerfile: 799B                                                             0.0s
+ => [internal] load .dockerignore                                                                0.0s
+ => => transferring context: 2B                                                                  0.0s
+ => [internal] load metadata for docker.io/library/golang:1.20                                   4.2s
+ => [auth] library/golang:pull token for registry-1.docker.io                                    0.0s
+ => [1/6] FROM docker.io/library/golang:1.20@sha256:8f9af7094d0cb27cc783c697ac5ba25efdc4da35f8  39.3s
+ => => resolve docker.io/library/golang:1.20@sha256:8f9af7094d0cb27cc783c697ac5ba25efdc4da35f85  0.0s
+ => => sha256:8f9af7094d0cb27cc783c697ac5ba25efdc4da35f8526db21f7aebb0b0b4f18a 2.36kB / 2.36kB   0.0s
+ => => sha256:c1a446d8f0c5658cc9af7b207a521995cf26bcfe1c9e6a4e148ba4eb8ed2e8b5 1.79kB / 1.79kB   0.0s
+ => => sha256:d5beeac3653f7c94aeda867588172915ce848d8d49d4ca24d24245505949b64d 2.75kB / 2.75kB   0.0s
+ => => sha256:68e92d11b04ec0fe48e60d59964704aca234084f87af5d1a068c49456b37fe 64.14MB / 64.14MB  16.2s
+ => => sha256:6a299ae9cfd996c1149a699d36cdaa76fa332c8e9d66d6678fa9a231d9ead04 49.58MB / 49.58MB  9.8s
+ => => sha256:e08e8703b2fb5e50153f792f3192087d26970d262806b397049d61b9a14b3af 24.05MB / 24.05MB  6.0s
+ => => sha256:4105062d1ee61f98bb0f7f6c0ac998caf55ff9a0e0fda9aa1fddbecc1f5916 92.37MB / 92.37MB  24.3s
+ => => sha256:870a28135dd085067b84c7b2af0529d02eab744a63d2834ad2780934573b 100.45MB / 100.45MB  27.4s
+ => => extracting sha256:6a299ae9cfd996c1149a699d36cdaa76fa332c8e9d66d6678fa9a231d9ead04c        3.1s
+ => => extracting sha256:e08e8703b2fb5e50153f792f3192087d26970d262806b397049d61b9a14b3af5        0.9s
+ => => sha256:ffe80ff754489bcce87b4c3580467de7a34764fc1ad5831f6eed096c78320a43 173B / 173B      17.5s
+ => => extracting sha256:68e92d11b04ec0fe48e60d59964704aca234084f87af5d1a068c49456b37fe3d        6.9s
+ => => sha256:4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1 32B / 32B        18.1s
+ => => extracting sha256:4105062d1ee61f98bb0f7f6c0ac998caf55ff9a0e0fda9aa1fddbecc1f591687        6.5s
+ => => extracting sha256:870a28135dd085067b84c7b2af0529d02eab744a63d2834ad2780934573b2be6        7.9s
+ => => extracting sha256:ffe80ff754489bcce87b4c3580467de7a34764fc1ad5831f6eed096c78320a43        0.0s
+ => => extracting sha256:4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1        0.0s
+ => [internal] load build context                                                                1.7s
+ => => transferring context: 44.86MB                                                             1.7s
+ => [2/6] WORKDIR /app                                                                           0.3s
+ => [3/6] COPY go.mod go.sum ./                                                                  0.0s
+ => [4/6] RUN go mod download                                                                    9.2s
+ => [5/6] COPY . .                                                                               1.3s
+ => [6/6] RUN go build -o main .                                                                70.4s
+ => exporting to image                                                                           1.6s
+ => => exporting layers                                                                          1.6s
+ => => writing image sha256:3270396fed9b976cee80fdd3a973572b9d7f8cfb24eed028f0ae4bdb9a8b9dcc     0.0s
+ => => naming to docker.io/library/lms-userservice-mk2                                           0.0s
+
+View build details: docker-desktop://dashboard/build/default/default/lpl6wlthbh2y3zarca0vz0uys
+
+What's Next?
+  View a summary of image vulnerabilities and recommendations → docker scout quickview
+PS C:\Jaspal\project\GoProjects\ScalableServicesProject\LibraryManagementSystem\ScalableAss_UserManagementService> kubectl run lms-us-mkk2 --image=lms-userservice-mk2 --image-pull-policy=Never
+pod/lms-us-mkk2 created
+PS C:\Jaspal\project\GoProjects\ScalableServicesProject\LibraryManagementSystem\ScalableAss_UserManagementService> kubectl get pods
+NAME                           READY   STATUS              RESTARTS   AGE
+lms-us-mkk2                    1/1     Running             0          66s
+lms-usr-ks1-74c7fd75f8-fhzpp   0/1     ErrImageNeverPull   0          7m19s
+lms-usr-ks1-75d5c459dd-4crq6   0/1     ErrImageNeverPull   0          7m26s
+
+
+PS C:\Jaspal\project\GoProjects\ScalableServicesProject\LibraryManagementSystem\ScalableAss_UserManagementService> kubectl get pod
+NAME                           READY   STATUS              RESTARTS   AGE
+lms-us-mkk2                    1/1     Running             0          11m
+lms-usr-ks1-74c7fd75f8-fhzpp   0/1     ErrImageNeverPull   0          17m
+lms-usr-ks1-75d5c459dd-4crq6   0/1     ErrImageNeverPull   0          17m
+
+PS C:\Jaspal\project\GoProjects\ScalableServicesProject\LibraryManagementSystem\ScalableAss_UserManagementService> minikube service list
+|----------------------|---------------------------|--------------|-----|
+|      NAMESPACE       |           NAME            | TARGET PORT  | URL |
+|----------------------|---------------------------|--------------|-----|
+| default              | kubernetes                | No node port |     |
+| default              | usr-mk                    |         8081 |     |
+| default              | usr1-mk                   |         8081 |     |
+| kube-system          | kube-dns                  | No node port |     |
+| kubernetes-dashboard | dashboard-metrics-scraper | No node port |     |
+| kubernetes-dashboard | kubernetes-dashboard      | No node port |     |
+|----------------------|---------------------------|--------------|-----|
+PS C:\Jaspal\project\GoProjects\ScalableServicesProject\LibraryManagementSystem\ScalableAss_UserManagementService> kubectl run lms-us-mkk22 --image=lms-userservice-mk2 --image-pull-policy=Never --port=8080
+pod/lms-us-mkk22 created
+PS C:\Jaspal\project\GoProjects\ScalableServicesProject\LibraryManagementSystem\ScalableAss_UserManagementService> minikube service list
+|----------------------|---------------------------|--------------|-----|
+|      NAMESPACE       |           NAME            | TARGET PORT  | URL |
+|----------------------|---------------------------|--------------|-----|
+| default              | kubernetes                | No node port |     |
+| default              | usr-mk                    |         8081 |     |
+| default              | usr1-mk                   |         8081 |     |
+| kube-system          | kube-dns                  | No node port |     |
+| kubernetes-dashboard | dashboard-metrics-scraper | No node port |     |
+| kubernetes-dashboard | kubernetes-dashboard      | No node port |     |
+|----------------------|---------------------------|--------------|-----|
+PS C:\Jaspal\project\GoProjects\ScalableServicesProject\LibraryManagementSystem\ScalableAss_UserManagementService> kubectl get svc
+NAME         TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)          AGE
+kubernetes   ClusterIP   10.96.0.1        <none>        443/TCP          2d1h
+usr-mk       NodePort    10.111.21.42     <none>        8081:32107/TCP   12h
+usr1-mk      NodePort    10.106.227.163   <none>        8081:30861/TCP   12h
+
+
+PS C:\Jaspal\project\GoProjects\ScalableServicesProject\LibraryManagementSystem\ScalableAss_UserManagementService> minikube service list
+|----------------------|---------------------------|--------------|-----|
+|      NAMESPACE       |           NAME            | TARGET PORT  | URL |
+|----------------------|---------------------------|--------------|-----|
+| default              | kubernetes                | No node port |     |
+| default              | usr-mk                    |         8081 |     |
+| default              | usr1-mk                   |         8081 |     |
+| kube-system          | kube-dns                  | No node port |     |
+| kubernetes-dashboard | dashboard-metrics-scraper | No node port |     |
+| kubernetes-dashboard | kubernetes-dashboard      | No node port |     |
+|----------------------|---------------------------|--------------|-----|
+PS C:\Jaspal\project\GoProjects\ScalableServicesProject\LibraryManagementSystem\ScalableAss_UserManagementService> kubectl get pods
+NAME                           READY   STATUS              RESTARTS   AGE
+lms-us-mkk2                    1/1     Running             0          31m
+lms-us-mkk22                   1/1     Running             0          7m28s
+lms-usr-ks1-74c7fd75f8-fhzpp   0/1     ErrImageNeverPull   0          38m
+lms-usr-ks1-75d5c459dd-4crq6   0/1     ErrImageNeverPull   0          38m
+
+PS C:\Jaspal\project\GoProjects\ScalableServicesProject\LibraryManagementSystem\ScalableAss_UserManagementService> kubectl port-forward lms-us-mkk2 8080
+Forwarding from 127.0.0.1:8080 -> 8080
+Forwarding from [::1]:8080 -> 8080
+Handling connection for 8080
+Handling connection for 8080
+
+
+Commands Only:
+1-redirect to project path in windows power shell
+2- minikube docker-env
+3-minikube -p minikube docker-env --shell powershell | Invoke-Expression
+4- docker build -t lms-userservice-mk2 .
+5-kubectl run lms-us-mkk22 --image=lms-userservice-mk2 --image-pull-policy=Never --port=8080
+6- kubectl port-forward lms-us-mkk2 8082:8080
+
+--optional to redirect to custom port: kubectl port-forward lms-us-mkk2 8090:8080
+
+------Filtered commands
+1-C:\Jaspal\project\GoProjects\ScalableServicesProject\LibraryManagementSystem\ScalableAss_UserManagementService> minikube docker-env
+$Env:DOCKER_TLS_VERIFY = "1"
+$Env:DOCKER_HOST = "tcp://127.0.0.1:62439"
+$Env:DOCKER_CERT_PATH = "C:\Users\Jaspal Singh\.minikube\certs"
+$Env:MINIKUBE_ACTIVE_DOCKERD = "minikube"
+# To point your shell to minikube's docker-daemon, run:
+# & minikube -p minikube docker-env --shell powershell | Invoke-Expression
+PS C:\Jaspal\project\GoProjects\ScalableServicesProject\LibraryManagementSystem\ScalableAss_UserManagementService> minikube -p minikube docker-env --shell powershell | Invoke-Expression
+PS C:\Jaspal\project\GoProjects\ScalableServicesProject\LibraryManagementSystem\ScalableAss_UserManagementService> docker build -t lms-userservice-mk2 .
+[+] Building 126.5s (12/12) FINISHED                                                   docker:default
+ => [internal] load build definition from Dockerfile                                             0.1s
+ => => transferring dockerfile: 799B                                                             0.0s
+ => [internal] load .dockerignore                                                                0.0s
+ => => transferring context: 2B                                                                  0.0s
+ => [internal] load metadata for docker.io/library/golang:1.20                                   4.2s
+ => [auth] library/golang:pull token for registry-1.docker.io                                    0.0s
+ => [1/6] FROM docker.io/library/golang:1.20@sha256:8f9af7094d0cb27cc783c697ac5ba25efdc4da35f8  39.3s
+ => => resolve docker.io/library/golang:1.20@sha256:8f9af7094d0cb27cc783c697ac5ba25efdc4da35f85  0.0s
+ => => sha256:8f9af7094d0cb27cc783c697ac5ba25efdc4da35f8526db21f7aebb0b0b4f18a 2.36kB / 2.36kB   0.0s
+ => => sha256:c1a446d8f0c5658cc9af7b207a521995cf26bcfe1c9e6a4e148ba4eb8ed2e8b5 1.79kB / 1.79kB   0.0s
+ => => sha256:d5beeac3653f7c94aeda867588172915ce848d8d49d4ca24d24245505949b64d 2.75kB / 2.75kB   0.0s
+ => => sha256:68e92d11b04ec0fe48e60d59964704aca234084f87af5d1a068c49456b37fe 64.14MB / 64.14MB  16.2s
+ => => sha256:6a299ae9cfd996c1149a699d36cdaa76fa332c8e9d66d6678fa9a231d9ead04 49.58MB / 49.58MB  9.8s
+ => => sha256:e08e8703b2fb5e50153f792f3192087d26970d262806b397049d61b9a14b3af 24.05MB / 24.05MB  6.0s
+ => => sha256:4105062d1ee61f98bb0f7f6c0ac998caf55ff9a0e0fda9aa1fddbecc1f5916 92.37MB / 92.37MB  24.3s
+ => => sha256:870a28135dd085067b84c7b2af0529d02eab744a63d2834ad2780934573b 100.45MB / 100.45MB  27.4s
+ => => extracting sha256:6a299ae9cfd996c1149a699d36cdaa76fa332c8e9d66d6678fa9a231d9ead04c        3.1s
+ => => extracting sha256:e08e8703b2fb5e50153f792f3192087d26970d262806b397049d61b9a14b3af5        0.9s
+ => => sha256:ffe80ff754489bcce87b4c3580467de7a34764fc1ad5831f6eed096c78320a43 173B / 173B      17.5s
+ => => extracting sha256:68e92d11b04ec0fe48e60d59964704aca234084f87af5d1a068c49456b37fe3d        6.9s
+ => => sha256:4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1 32B / 32B        18.1s
+ => => extracting sha256:4105062d1ee61f98bb0f7f6c0ac998caf55ff9a0e0fda9aa1fddbecc1f591687        6.5s
+ => => extracting sha256:870a28135dd085067b84c7b2af0529d02eab744a63d2834ad2780934573b2be6        7.9s
+ => => extracting sha256:ffe80ff754489bcce87b4c3580467de7a34764fc1ad5831f6eed096c78320a43        0.0s
+ => => extracting sha256:4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1        0.0s
+ => [internal] load build context                                                                1.7s
+ => => transferring context: 44.86MB                                                             1.7s
+ => [2/6] WORKDIR /app                                                                           0.3s
+ => [3/6] COPY go.mod go.sum ./                                                                  0.0s
+ => [4/6] RUN go mod download                                                                    9.2s
+ => [5/6] COPY . .                                                                               1.3s
+ => [6/6] RUN go build -o main .                                                                70.4s
+ => exporting to image                                                                           1.6s
+ => => exporting layers                                                                          1.6s
+ => => writing image sha256:3270396fed9b976cee80fdd3a973572b9d7f8cfb24eed028f0ae4bdb9a8b9dcc     0.0s
+ => => naming to docker.io/library/lms-userservice-mk2                                           0.0s
+
+View build details: docker-desktop://dashboard/build/default/default/lpl6wlthbh2y3zarca0vz0uys
+
+What's Next?
+  View a summary of image vulnerabilities and recommendations → docker scout quickview
+
+
+2PS C:\Jaspal\project\GoProjects\ScalableServicesProject\LibraryManagementSystem\ScalableAss_UserManagementService> kubectl run lms-us-mkk22 --image=lms-userservice-mk2 --image-pull-policy=Never --port=8080
+pod/lms-us-mkk22 created
+
+
+
+
+
